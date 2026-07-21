@@ -199,7 +199,7 @@ const Products = () => {
                   ))}
                 </select>
               </div>
-              <div style={{ display: "flex", gap: 12 }}>
+              <div className="form-row">
                 <div className="form-group" style={{ flex: 1 }}>
                   <label>السعر</label>
                   <input type="number" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} required />
