@@ -33,6 +33,14 @@ body {
 }
 
 /* Sidebar */
+.mobile-topbar {
+  display: none;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
 .sidebar {
   width: 250px;
   background: var(--navy-800);
@@ -40,6 +48,16 @@ body {
   display: flex;
   flex-direction: column;
   padding: 24px 16px;
+}
+
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-close {
+  display: none;
 }
 
 .sidebar-logo {
@@ -254,6 +272,11 @@ tr:hover td {
   border-color: var(--gold-500);
 }
 
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
 /* Login page */
 .login-page {
   min-height: 100vh;
@@ -319,4 +342,110 @@ tr:hover td {
 
 .mt-16 {
   margin-top: 16px;
+}
+
+/* ==================== Mobile Responsive ==================== */
+@media (max-width: 860px) {
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .mobile-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--navy-800);
+    border-bottom: 1px solid var(--navy-700);
+    padding: 14px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 60;
+  }
+
+  .menu-toggle {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .sidebar-close {
+    display: block;
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 90;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 78%;
+    max-width: 280px;
+    transform: translateX(100%);
+    transition: transform 0.2s ease;
+    z-index: 95;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    padding: 18px 16px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .page-title {
+    font-size: 19px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .card {
+    padding: 14px;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 560px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .modal-box {
+    width: 92vw;
+    padding: 18px;
+  }
+
+  .login-card {
+    width: 90vw;
+    padding: 24px;
+  }
 }
