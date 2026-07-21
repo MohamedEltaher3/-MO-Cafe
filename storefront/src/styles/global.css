@@ -133,7 +133,7 @@ img {
 .mobile-nav-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(43, 29, 20, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 200;
 }
 
@@ -144,7 +144,7 @@ img {
   width: 78%;
   max-width: 300px;
   height: 100%;
-  background: var(--cream);
+  background: var(--coffee-900);
   padding: 20px;
   box-shadow: var(--shadow);
 }
@@ -155,7 +155,15 @@ img {
   align-items: center;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--cream-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mobile-nav-header .logo {
+  color: var(--cream);
+}
+
+.mobile-nav-header .menu-toggle {
+  color: var(--cream);
 }
 
 .mobile-nav-links {
@@ -170,8 +178,13 @@ img {
   padding: 14px 10px;
   font-size: 16px;
   font-weight: 600;
-  color: var(--coffee-800);
-  border-bottom: 1px solid var(--cream-dark);
+  color: var(--cream);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color 0.15s;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--gold-400);
 }
 
 /* Hero */
