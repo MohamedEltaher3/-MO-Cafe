@@ -130,7 +130,7 @@ const Coupons = () => {
                 <label>الكود</label>
                 <input value={form.code} onChange={(e) => setForm({ ...form, code: e.target.value.toUpperCase() })} required placeholder="MOCAFE20" />
               </div>
-              <div style={{ display: "flex", gap: 12 }}>
+              <div className="form-row">
                 <div className="form-group" style={{ flex: 1 }}>
                   <label>النوع</label>
                   <select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
