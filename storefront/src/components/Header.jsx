@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { ShoppingBag, Coffee, Menu, X } from "lucide-react";
 import { useCart } from "../context/CartContext";
@@ -42,27 +43,29 @@ const Header = () => {
         </Link>
       </div>
 
-      {menuOpen && (
-        <div className="mobile-nav-overlay" onClick={() => setMenuOpen(false)}>
-          <div className="mobile-nav-drawer" onClick={(e) => e.stopPropagation()}>
-            <div className="mobile-nav-header">
-              <span className="logo">MO Cafe</span>
-              <button className="menu-toggle" onClick={() => setMenuOpen(false)} aria-label="إغلاق القائمة">
-                <X size={22} />
-              </button>
+      {menuOpen &&
+        createPortal(
+          <div className="mobile-nav-overlay" onClick={() => setMenuOpen(false)}>
+            <div className="mobile-nav-drawer" onClick={(e) => e.stopPropagation()}>
+              <div className="mobile-nav-header">
+                <span className="logo">MO Cafe</span>
+                <button className="menu-toggle" onClick={() => setMenuOpen(false)} aria-label="إغلاق القائمة">
+                  <X size={22} />
+                </button>
+              </div>
+              <ul className="mobile-nav-links">
+                {navItems.map((item) => (
+                  <li key={item.to}>
+                    <Link to={item.to} onClick={() => setMenuOpen(false)}>
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="mobile-nav-links">
-              {navItems.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} onClick={() => setMenuOpen(false)}>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </header>
   );
 };
